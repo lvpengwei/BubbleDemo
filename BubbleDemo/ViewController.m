@@ -48,17 +48,17 @@
     switch (sender.selectedSegmentIndex) {
         case 0:{
             self.bubbleView.textBubbleView.bubbleType = BubbleTypeEllipse;
-            [self.bubbleView.textBubbleView setNeedsDisplay];
+            [self.bubbleView setNeedsDisplay];
         }
             break;
         case 1:{
             self.bubbleView.textBubbleView.bubbleType = BubbleTypeThought;
-            [self.bubbleView.textBubbleView setNeedsDisplay];
+            [self.bubbleView setNeedsDisplay];
         }
             break;
         case 2:{
             self.bubbleView.textBubbleView.bubbleType = BubbleTypeShout;
-            [self.bubbleView.textBubbleView setNeedsDisplay];
+            [self.bubbleView setNeedsDisplay];
         }
         default:
             break;
