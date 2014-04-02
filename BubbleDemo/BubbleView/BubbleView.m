@@ -151,6 +151,23 @@
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
             break;
+            case BubbleTypeThought:
+        {
+            NSArray *thoughtData = [TextBubbleView thought_data];
+            CGContextBeginPath(context);
+            CGContextMoveToPoint(context, [thoughtData[0][0] floatValue]*x_scale+textBubbleViewFrameX, [thoughtData[0][1] floatValue]*y_scale+textBubbleViewFrameY); // 移动
+            for (NSArray *points in thoughtData) {
+                CGContextAddCurveToPoint(context,
+                                         ([points[0] floatValue]+1)*x_scale+textBubbleViewFrameX,
+                                         ([points[1] floatValue]+1)*y_scale+textBubbleViewFrameY,
+                                         ([points[2] floatValue]+1)*x_scale+textBubbleViewFrameX,
+                                         ([points[3] floatValue]+1)*y_scale+textBubbleViewFrameY,
+                                         ([points[4] floatValue]+1)*x_scale+textBubbleViewFrameX,
+                                         ([points[5] floatValue]+1)*y_scale+textBubbleViewFrameY);
+            }
+            CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
+        }
+            break;
         default:
             break;
     }

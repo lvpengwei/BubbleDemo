@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) MovableView *foregroundView;
+@property (nonatomic) CGFloat padding_x_scale;
+@property (nonatomic) CGFloat padding_y_scale;
 
 @end
 
@@ -76,17 +78,27 @@
 
 - (float)x_scale
 {
-    return (self.frame.size.width-4)/75;
+    return (self.frame.size.width)/75;
 }
 
 - (float)y_scale
 {
-    return (self.frame.size.height-4)/50;
+    return (self.frame.size.height)/50;
+}
+
+- (CGFloat)padding_x_scale
+{
+    return (self.frame.size.width-self.rectPadding*2)/75;
+}
+
+- (CGFloat)padding_y_scale
+{
+    return (self.frame.size.height-self.rectPadding*2)/50;
 }
 
 - (NSInteger)rectPadding
 {
-    return 1;
+    return 2;
 }
 
 #pragma mark - Life Cycle
@@ -164,10 +176,10 @@
         case BubbleTypeShout:{
             NSArray *shoutData = [TextBubbleView shout_data];
             CGContextBeginPath(context);
-            CGContextMoveToPoint(context, [shoutData[0][0] floatValue]*self.x_scale, [shoutData[0][1] floatValue]*self.y_scale); // 移动
+            CGContextMoveToPoint(context, [shoutData[0][0] floatValue]*self.padding_x_scale+self.rectPadding, [shoutData[0][1] floatValue]*self.padding_y_scale+self.rectPadding); // 移动
             for (NSArray *points in shoutData) {
                 for (int i = 0; i < 3; i+=2) {
-                    CGContextAddLineToPoint(context, [points[i] floatValue]*self.x_scale, [points[i+1] floatValue]*self.y_scale);
+                    CGContextAddLineToPoint(context, [points[i] floatValue]*self.padding_x_scale+self.rectPadding, [points[i+1] floatValue]*self.padding_y_scale+self.rectPadding);
                 }
             }
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
@@ -176,15 +188,15 @@
         case BubbleTypeThought:{
             NSArray *thoughtData = [TextBubbleView thought_data];
             CGContextBeginPath(context);
-            CGContextMoveToPoint(context, [thoughtData[0][0] floatValue]*self.x_scale, [thoughtData[0][1] floatValue]*self.y_scale); // 移动
+            CGContextMoveToPoint(context, [thoughtData[0][0] floatValue]*self.padding_x_scale+self.rectPadding, [thoughtData[0][1] floatValue]*self.padding_y_scale+self.rectPadding); // 移动
             for (NSArray *points in thoughtData) {
                 CGContextAddCurveToPoint(context,
-                                         ([points[0] floatValue]+1)*self.x_scale,
-                                         ([points[1] floatValue]+1)*self.y_scale,
-                                         ([points[2] floatValue]+1)*self.x_scale,
-                                         ([points[3] floatValue]+1)*self.y_scale,
-                                         ([points[4] floatValue]+1)*self.x_scale,
-                                         ([points[5] floatValue]+1)*self.y_scale);
+                                         ([points[0] floatValue]+1)*self.padding_x_scale+self.rectPadding,
+                                         ([points[1] floatValue]+1)*self.padding_y_scale+self.rectPadding,
+                                         ([points[2] floatValue]+1)*self.padding_x_scale+self.rectPadding,
+                                         ([points[3] floatValue]+1)*self.padding_y_scale+self.rectPadding,
+                                         ([points[4] floatValue]+1)*self.padding_x_scale+self.rectPadding,
+                                         ([points[5] floatValue]+1)*self.padding_y_scale+self.rectPadding);
             }
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
