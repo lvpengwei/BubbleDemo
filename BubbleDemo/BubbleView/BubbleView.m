@@ -173,27 +173,27 @@
             break;
         case BubbleTypeThought:
         {
-            float local12 = MAX(3, floorf(dist/28));
-            float local13 = dist/local12;
-            float local14 = 7/local12;
-            float local16 = 0;
-            while (local16 < local12) {
+            float numCicle = MAX(3, floorf(dist/28));
+            float lineLength = dist/numCicle;
+            float radiusScale = 7/numCicle;
+            float i = 0;
+            while (i < numCicle) {
                 float x, y;
                 if (x2<x1) {
-                    x = (dist - (local16 * local13)) *cos(atan(k))+x2;
+                    x = (dist - (i * lineLength)) *cos(atan(k))+x2;
                     y = k*x+b;
                 } else if (x2==x1) {
                     x = x2;
-                    y = x2>0?local13*local16:-local13*local16;
+                    y = x2>0?lineLength*i:-lineLength*i;
                     y = y1-y;
                 } else {
-                    x = -(dist - (local16 * local13)) *cos(atan(k))+x2;
+                    x = -(dist - (i * lineLength)) *cos(atan(k))+x2;
                     y = k*x+b;
                 }
                 
-                CGContextAddArc(context, x, y, (3 + (local16 * local14)), 0, 2*M_PI, 0);
+                CGContextAddArc(context, x, y, (3 + (i * radiusScale)), 0, 2*M_PI, 0);
                 CGContextDrawPath(context, kCGPathFillStroke); //绘制路径
-                local16++;
+                i++;
             }
         }
         default:
