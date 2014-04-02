@@ -114,8 +114,6 @@
     float y_scale = self.textBubbleView.y_scale;
     float textBubbleViewFrameX = self.textBubbleView.frame.origin.x;
     float textBubbleViewFrameY = self.textBubbleView.frame.origin.y;
-//    float textBubbleViewFrameWidth = self.textBubbleView.frame.size.width;
-//    float textBubbleViewFrameHeight = self.textBubbleView.frame.size.height;
     float x1 = self.targetPoint.x;
     float y1 = self.targetPoint.y;
     float x2 = self.textBubbleViewCenterPoint.x;
