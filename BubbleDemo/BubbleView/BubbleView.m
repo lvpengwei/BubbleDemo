@@ -48,50 +48,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // TODO:init时添加subview 有时会失效
-//        // BubblePointerView
-//        BubblePointerView *bubblePointerView = [[BubblePointerView alloc] init];
-//        bubblePointerView.bounds = CGRectMake(0, 0, 50, 50);
-//        bubblePointerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)+100);
-//        bubblePointerView.delegate = self;
-//        [self addSubview:bubblePointerView];
-//        self.bubblePointerView = bubblePointerView;
-//        
-//        // TextBubbleView
-//        TextBubbleView *textBubbleView = [[TextBubbleView alloc] init];
-//        textBubbleView.bounds = CGRectMake(0, 0, 80, 50);
-//        textBubbleView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-//        textBubbleView.backgroundColor = [UIColor clearColor];
-//        self.targetPoint = self.bubblePointerView.center;
-//        [self addSubview:textBubbleView];
-//        self.textBubbleView = textBubbleView;
+        // BubblePointerView
+        BubblePointerView *bubblePointerView = [[BubblePointerView alloc] init];
+        bubblePointerView.bounds = CGRectMake(0, 0, 50, 50);
+        bubblePointerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)+100);
+        bubblePointerView.backgroundColor = [UIColor clearColor];
+        bubblePointerView.delegate = self;
+        [self addSubview:bubblePointerView];
+        self.bubblePointerView = bubblePointerView;
+        
+        // TextBubbleView
+        TextBubbleView *textBubbleView = [[TextBubbleView alloc] initWithFrame:CGRectMake(0, 0, 85, 60)];
+        textBubbleView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+        textBubbleView.backgroundColor = [UIColor clearColor];
+        textBubbleView.maxWidth = 100;
+        textBubbleView.delegate = self;
+        [self addSubview:textBubbleView];
+        self.textBubbleView = textBubbleView;
+        
+        self.textBubbleViewCenterPoint = self.textBubbleView.center;
+        self.targetPoint = self.bubblePointerView.center;
     }
     return self;
-}
-
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
-    // BubblePointerView
-    BubblePointerView *bubblePointerView = [[BubblePointerView alloc] init];
-    bubblePointerView.bounds = CGRectMake(0, 0, 50, 50);
-    bubblePointerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)+100);
-    bubblePointerView.backgroundColor = [UIColor clearColor];
-    bubblePointerView.delegate = self;
-    [self addSubview:bubblePointerView];
-    self.bubblePointerView = bubblePointerView;
-    
-    // TextBubbleView
-    TextBubbleView *textBubbleView = [[TextBubbleView alloc] init];
-    textBubbleView.bounds = CGRectMake(0, 0, 85, 60);
-    textBubbleView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    textBubbleView.backgroundColor = [UIColor clearColor];
-    textBubbleView.maxWidth = 100;
-    textBubbleView.delegate = self;
-    [self addSubview:textBubbleView];
-    self.textBubbleView = textBubbleView;
-
-    self.textBubbleViewCenterPoint = self.textBubbleView.center;
-    self.targetPoint = self.bubblePointerView.center;
 }
 
 #pragma mark - override

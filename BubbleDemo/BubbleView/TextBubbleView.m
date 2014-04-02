@@ -112,50 +112,27 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-//        UITextView *textView = [[UITextView alloc] init];
-//        textView.frame = CGRectMake(0, 0, 20, 30);
-//        textView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-//        textView.delegate = self;
-//        textView.backgroundColor = [UIColor clearColor];
-//        textView.scrollEnabled = NO;
-//        [self addSubview:textView];
-//        self.textView = textView;
-//        
-//        // foreground view
-//        MovableView *foregroundView = [[MovableView alloc] initWithFrame:(CGRect){.origin=CGPointZero, .size=frame.size}];
-//        foregroundView.delegate = self;
-//        foregroundView.backgroundColor = [UIColor orangeColor];
-//        [self addSubview:foregroundView];
-//        self.foregroundView = foregroundView;
-//        
-//        // tap action
-//        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-//        [self.foregroundView addGestureRecognizer:tapGestureRecognizer];
+        UITextView *textView = [[UITextView alloc] init];
+        textView.frame = CGRectMake(0, 0, 20, 30);
+        textView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+        textView.delegate = self;
+        textView.backgroundColor = [UIColor clearColor];
+        textView.scrollEnabled = NO;
+        [self addSubview:textView];
+        self.textView = textView;
+        
+        // foreground view
+        MovableView *foregroundView = [[MovableView alloc] initWithFrame:(CGRect){.origin=CGPointZero, .size=self.frame.size}];
+        foregroundView.delegate = self;
+        foregroundView.backgroundColor = [UIColor clearColor];
+        [self addSubview:foregroundView];
+        self.foregroundView = foregroundView;
+        
+        // tap action
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [self.foregroundView addGestureRecognizer:tapGestureRecognizer];
     }
     return self;
-}
-
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
-    UITextView *textView = [[UITextView alloc] init];
-    textView.frame = CGRectMake(0, 0, 20, 30);
-    textView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    textView.delegate = self;
-    textView.backgroundColor = [UIColor clearColor];
-    textView.scrollEnabled = NO;
-    [self addSubview:textView];
-    self.textView = textView;
-    
-    // foreground view
-    MovableView *foregroundView = [[MovableView alloc] initWithFrame:(CGRect){.origin=CGPointZero, .size=self.frame.size}];
-    foregroundView.delegate = self;
-    foregroundView.backgroundColor = [UIColor clearColor];
-    [self addSubview:foregroundView];
-    self.foregroundView = foregroundView;
-    
-    // tap action
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    [self.foregroundView addGestureRecognizer:tapGestureRecognizer];
 }
 
 // Only override drawRect: if you perform custom drawing.
