@@ -217,54 +217,6 @@
         default:
             break;
     }
-    
-//    // 小一个尺寸的前景bubble 目的是挡住三角和圆圈交界处
-//    CGContextSetRGBStrokeColor(context,1,1,1,1.0); // 画笔线的颜色
-//    float x_scale = self.textBubbleView.x_scale;
-//    float y_scale = self.textBubbleView.y_scale;
-//    float textBubbleViewFrameX = self.textBubbleView.frame.origin.x;
-//    float textBubbleViewFrameY = self.textBubbleView.frame.origin.y;
-//    float textBubbleViewFrameWidth = self.textBubbleView.frame.size.width;
-//    float textBubbleViewFrameHeight = self.textBubbleView.frame.size.height;
-//    switch (self.textBubbleView.bubbleType) {
-//        case BubbleTypeEllipse:{
-//            CGFloat rectPadding = self.textBubbleView.rectPadding;
-//            CGContextAddEllipseInRect(context, CGRectMake(textBubbleViewFrameX+rectPadding+1, textBubbleViewFrameY+rectPadding+1, textBubbleViewFrameWidth-(rectPadding+1)*2, textBubbleViewFrameHeight-(rectPadding+1)*2)); // 椭圆
-//            CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
-//        }
-//            break;
-//        case BubbleTypeShout:{
-//            NSArray *shoutData = [TextBubbleView shout_data];
-//            CGContextBeginPath(context);
-//            CGContextMoveToPoint(context, ([shoutData[0][0] floatValue]+textBubbleViewFrameX-1)*x_scale, ([shoutData[0][1] floatValue]+textBubbleViewFrameY-1)*y_scale); // 移动
-//            for (NSArray *points in shoutData) {
-//                for (int i = 0; i < 3; i+=2) {
-//                    CGContextAddLineToPoint(context, ([points[i] floatValue]+textBubbleViewFrameX-1)*x_scale, ([points[i+1] floatValue]+textBubbleViewFrameY-1)*y_scale);
-//                }
-//            }
-//            CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
-//        }
-//            break;
-//        case BubbleTypeThought:{
-//            NSArray *thoughtData = [TextBubbleView thought_data];
-//            CGContextBeginPath(context);
-//            CGContextMoveToPoint(context, ([thoughtData[0][0] floatValue]-textBubbleViewFrameX-1)*x_scale, ([thoughtData[0][1] floatValue]-textBubbleViewFrameY-1)*y_scale); // 移动
-//            for (NSArray *points in thoughtData) {
-//                CGContextAddCurveToPoint(context,
-//                                         ([points[0] floatValue]+textBubbleViewFrameX)*x_scale,
-//                                         ([points[1] floatValue]+textBubbleViewFrameY)*y_scale,
-//                                         ([points[2] floatValue]+textBubbleViewFrameX)*x_scale,
-//                                         ([points[3] floatValue]+textBubbleViewFrameY)*y_scale,
-//                                         ([points[4] floatValue]+textBubbleViewFrameX)*x_scale,
-//                                         ([points[5] floatValue]+textBubbleViewFrameY)*y_scale);
-//            }
-//            CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-    
 }
 
 @end
