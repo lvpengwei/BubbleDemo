@@ -139,7 +139,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"%s", __FUNCTION__);
     // 一个不透明类型的Quartz 2D绘画环境,相当于一个画布,你可以在上面任意绘画
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(context,1,1,1,1.0); // 画笔线的颜色
