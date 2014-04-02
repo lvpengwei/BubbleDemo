@@ -31,6 +31,7 @@
 
 - (void)textBubbleViewDidChanged:(TextBubbleView *)textBubbleView
 {
+    self.textBubbleViewCenterPoint = CGPointMake(CGRectGetMidX(textBubbleView.frame), CGRectGetMidY(textBubbleView.frame));
     [self setNeedsDisplay];
 }
 
@@ -112,7 +113,7 @@
     float dist = sqrtf(powf((x1-x2), 2) + powf((y1-y2), 2));
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(context,0,0,0,1.0); // 画笔线的颜色
-    CGContextSetLineWidth(context, 1.0); // 线的宽度
+    CGContextSetLineWidth(context, 2.0); // 线的宽度
     UIColor *aColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     CGContextSetFillColorWithColor(context, aColor.CGColor); // 填充颜色
     
