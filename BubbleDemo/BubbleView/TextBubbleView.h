@@ -26,7 +26,7 @@ typedef enum : NSUInteger {
 @interface TextBubbleView : UIView
 
 @property (nonatomic) BubbleType bubbleType;
-@property (nonatomic) float maxWidth;
+@property (nonatomic) CGFloat maxWidth;
 @property (nonatomic, weak) id<TextBubbleViewProtocol> delegate;
 
 @property (nonatomic) CGFloat x_scale;
