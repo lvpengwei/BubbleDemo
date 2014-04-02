@@ -29,8 +29,8 @@ typedef enum : NSUInteger {
 @property (nonatomic) float maxWidth;
 @property (nonatomic, weak) id<TextBubbleViewProtocol> delegate;
 
-@property (nonatomic) float x_scale;
-@property (nonatomic) float y_scale;
+@property (nonatomic) CGFloat x_scale;
+@property (nonatomic) CGFloat y_scale;
 @property (nonatomic) NSInteger rectPadding;
 
 + (NSArray *)thought_data;

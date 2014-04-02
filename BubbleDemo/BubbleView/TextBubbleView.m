@@ -80,12 +80,12 @@
 
 #pragma mark - override
 
-- (float)x_scale
+- (CGFloat)x_scale
 {
     return (self.frame.size.width)/75;
 }
 
-- (float)y_scale
+- (CGFloat)y_scale
 {
     return (self.frame.size.height)/50;
 }
