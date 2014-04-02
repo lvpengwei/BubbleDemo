@@ -61,6 +61,10 @@
     // foreground view
     self.foregroundView.frame = (CGRect){.origin=CGPointZero, .size=bubbleToSize};
     [self setNeedsDisplay];
+    
+    if ([self.delegate respondsToSelector:@selector(textBubbleViewDidChanged:)]) {
+        [self.delegate textBubbleViewDidChanged:self];
+    }
 }
 
 #pragma mark - Handle Action

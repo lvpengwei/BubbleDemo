@@ -29,6 +29,11 @@
     [self setNeedsDisplay];
 }
 
+- (void)textBubbleViewDidChanged:(TextBubbleView *)textBubbleView
+{
+    [self setNeedsDisplay];
+}
+
 #pragma mark - BubblePointerViewProtocol
 
 - (void)bubblePointerViewDidMoved:(BubblePointerView *)bubblePointerView

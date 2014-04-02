@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
 @protocol TextBubbleViewProtocol <NSObject>
 
 - (void)textBubbleViewDidmoved:(TextBubbleView *)textBubbleView;
+- (void)textBubbleViewDidChanged:(TextBubbleView *)textBubbleView;
 
 @end
 
