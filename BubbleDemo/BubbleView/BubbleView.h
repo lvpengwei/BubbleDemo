@@ -11,6 +11,7 @@
 
 @interface BubbleView : UIView
 
+@property (nonatomic) BubbleType bubbleType;
 @property (nonatomic, strong) TextBubbleView *textBubbleView;
 
 @end

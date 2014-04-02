@@ -7,7 +7,6 @@
 //
 
 #import "BubbleView.h"
-#import "TextBubbleView.h"
 
 #pragma mark - BubbleView
 
@@ -87,6 +86,7 @@
 - (void)setNeedsDisplay
 {
     [super setNeedsDisplay];
+    self.textBubbleView.bubbleType = self.bubbleType;
     [self.textBubbleView setNeedsDisplay];
 }
 
@@ -118,7 +118,7 @@
     CGContextSetFillColorWithColor(context, aColor.CGColor); // 填充颜色
     
     // border background
-    switch (self.textBubbleView.bubbleType) {
+    switch (self.bubbleType) {
         case BubbleTypeEllipse:
         {
             CGContextAddEllipseInRect(context, self.textBubbleView.frame); // 椭圆
@@ -159,7 +159,7 @@
             break;
     }
     // triangle and cycle
-    switch (self.textBubbleView.bubbleType) {
+    switch (self.bubbleType) {
         case BubbleTypeEllipse:
         case BubbleTypeShout:
         {
