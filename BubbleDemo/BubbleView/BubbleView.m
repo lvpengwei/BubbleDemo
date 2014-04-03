@@ -166,36 +166,6 @@
             int c = 15;
             float x3, x4, y3, y4;
             float k = sqrt(pow((x1-x2), 2) + pow((y1-y2), 2));
-//            if (x1<x2) {
-//                if (y1<y2) {
-//                    x3 = MIN((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    x4 = MAX((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    y3 = MAX((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                    y4 = MIN((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                } else {
-//                    x3 = MIN((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    x4 = MAX((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    y3 = MIN((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                    y4 = MAX((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                }
-//            } else if (x1>x2) {
-//                if (y1>y2) {
-//                    x3 = MAX((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    x4 = MIN((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    y3 = MIN((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                    y4 = MAX((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                } else {
-//                    x3 = MAX((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    x4 = MIN((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
-//                    y3 = MAX((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                    y4 = MIN((y2+c*(x2-x1)/k), (y2-c*(x2-x1)/k));
-//                }
-//            } else {
-//                x3 = x2-15;
-//                x4 = x2+15;
-//                y3 = y2;
-//                y4 = y2;
-//            }
             
             if ((x1-x2)*(y1-y2)>0) {
                 x3 = MIN((x2+c*(y2-y1)/k), (x2-c*(y2-y1)/k));
