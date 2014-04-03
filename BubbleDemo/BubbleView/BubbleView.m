@@ -257,8 +257,8 @@
     CGContextSetLineWidth(context, 1.0); // 线的宽度
     UIColor *aColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     CGContextSetFillColorWithColor(context, aColor.CGColor); // 填充颜色
-    CGContextAddArc(context, CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds), self.bounds.size.width/2-1, 0, 2 * M_PI, 0); //添加一个圆
-    CGContextDrawPath(context, kCGPathFillStroke); //绘制路径
+    CGContextAddArc(context, CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds), self.bounds.size.width/2-30, 0, 2 * M_PI, 0); //添加一个圆
+    CGContextDrawPath(context, kCGPathStroke); //绘制路径
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

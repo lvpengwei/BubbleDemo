@@ -9,14 +9,63 @@
 #import "ViewController.h"
 #import "BubbleView.h"
 
-@interface ViewController ()
+#define SendPhotosViewControllerCamera 0
+#define SendPhotosViewControllerPickPhoto 1
+
+@interface ViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) BubbleView *bubbleView;
 @property (nonatomic, strong) TextBubbleView *textBubbleView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
 @implementation ViewController
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == SendPhotosViewControllerCamera) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *imagePickerConroller = [[UIImagePickerController alloc] init];
+            imagePickerConroller.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePickerConroller.allowsEditing = NO;
+            imagePickerConroller.showsCameraControls = YES;
+            imagePickerConroller.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+            imagePickerConroller.delegate = self;
+            [self presentViewController:imagePickerConroller animated:YES completion:nil];
+        } else {
+            NSLog(@"相机不可用");
+        }
+    } else if (buttonIndex == SendPhotosViewControllerPickPhoto) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePickerController.allowsEditing = NO;
+            imagePickerController.delegate = self;
+            [self presentViewController:imagePickerController animated:YES completion:nil];
+        } else {
+            NSLog(@"相册不可用");
+        }
+    }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad
 {
@@ -43,6 +92,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Handle Action
+
 - (IBAction)segmentControlAction:(UISegmentedControl *)sender
 {
     switch (sender.selectedSegmentIndex) {
@@ -63,6 +115,12 @@
         default:
             break;
     }
+}
+
+- (IBAction)pickPhoto:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择照片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil];
+    [actionSheet showInView:self.view];
 }
 
 @end
