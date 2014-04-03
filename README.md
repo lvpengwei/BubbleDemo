@@ -1,0 +1,3 @@
+BubbleDemo
+==========
+BubbleView可在照片或图片上添加一个气泡框(目前支持三种类型 : ellipse, shout 和 thought)
