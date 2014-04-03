@@ -163,6 +163,7 @@
         case BubbleTypeEllipse:
         case BubbleTypeShout:
         {
+            // TODO:三角底边长度, 可调整为随输入框的大小而改变
             int c = 15;
             float x3, x4, y3, y4;
             float k = sqrt(pow((x1-x2), 2) + pow((y1-y2), 2));
