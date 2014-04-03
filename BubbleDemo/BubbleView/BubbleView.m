@@ -160,6 +160,7 @@
     }
     // triangle and cycle
     switch (self.bubbleType) {
+            // TODO:椭圆形状情况, 三角形两条边改为贝塞尔曲线
         case BubbleTypeEllipse:
         case BubbleTypeShout:
         {
