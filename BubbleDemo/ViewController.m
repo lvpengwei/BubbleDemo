@@ -15,7 +15,9 @@
 @interface ViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) BubbleView *bubbleView;
-@property (nonatomic, strong) TextBubbleView *textBubbleView;
+@property (nonatomic, strong) BubbleView *bubbleView1;
+@property (nonatomic, strong) NSMutableArray *bubbleViews;
+//@property (nonatomic, strong) TextBubbleView *textBubbleView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
@@ -84,13 +86,29 @@
     bubbleView.textBubbleView.bubbleType = BubbleTypeEllipse;
     bubbleView.textBubbleView.maxWidth = 100;
     [self.view addSubview:bubbleView];
-    self.bubbleView = bubbleView;
+    [self.bubbleViews addObject:bubbleView];
+//    self.bubbleView = bubbleView;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - override
+
+- (NSMutableArray *)bubbleViews
+{
+    if (_bubbleViews == nil) {
+        _bubbleViews = [NSMutableArray array];
+    }
+    return _bubbleViews;
+}
+
+- (BubbleView *)bubbleView
+{
+    return self.bubbleViews[self.bubbleViews.count-1];
 }
 
 #pragma mark - Handle Action
@@ -121,6 +139,23 @@
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择照片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil];
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)addBubbleView:(id)sender
+{
+    BubbleView *bubbleView = [[BubbleView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    bubbleView.backgroundColor = [UIColor clearColor];
+    bubbleView.textBubbleView.bubbleType = BubbleTypeEllipse;
+    bubbleView.textBubbleView.maxWidth = 100;
+    [self.view addSubview:bubbleView];
+    [self.bubbleViews addObject:bubbleView];
+}
+
+- (IBAction)cutBubbleView:(id)sender
+{
+    BubbleView *bubbleView = self.bubbleViews[self.bubbleViews.count-1];
+    [bubbleView removeFromSuperview];
+    [self.bubbleViews removeObject:bubbleView];
 }
 
 @end
