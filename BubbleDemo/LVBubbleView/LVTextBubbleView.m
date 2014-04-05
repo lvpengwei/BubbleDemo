@@ -6,28 +6,28 @@
 //  Copyright (c) 2014年 pengwei.lv. All rights reserved.
 //
 
-#import "TextBubbleView.h"
-#import "MovableView.h"
+#import "LVTextBubbleView.h"
+#import "LVMovableView.h"
 
-@interface TextBubbleView () <UITextViewDelegate, MovableViewProtocol>
+@interface LVTextBubbleView () <UITextViewDelegate, LVMovableViewProtocol>
 
 @property (nonatomic, strong) UITextView *textView;
-@property (nonatomic, strong) MovableView *foregroundView;
+@property (nonatomic, strong) LVMovableView *foregroundView;
 @property (nonatomic) CGFloat padding_x_scale;
 @property (nonatomic) CGFloat padding_y_scale;
 
 @end
 
-@implementation TextBubbleView
+@implementation LVTextBubbleView
 
-#pragma mark - MovableViewProtocol
+#pragma mark - LVMovableViewProtocol
 
 - (void)movableViewBeginMove
 {
     [self.textView resignFirstResponder];
 }
 
-- (void)movableView:(MovableView *)movable deltaX:(float)deltaX deltaY:(float)deltaY
+- (void)movableView:(LVMovableView *)movable deltaX:(float)deltaX deltaY:(float)deltaY
 {
     self.transform = CGAffineTransformTranslate(self.transform, deltaX, deltaY);
     if ([self.delegate respondsToSelector:@selector(textBubbleViewDidmoved:)]) {
@@ -122,7 +122,7 @@
         self.textView = textView;
         
         // foreground view
-        MovableView *foregroundView = [[MovableView alloc] initWithFrame:(CGRect){.origin=CGPointZero, .size=self.frame.size}];
+        LVMovableView *foregroundView = [[LVMovableView alloc] initWithFrame:(CGRect){.origin=CGPointZero, .size=self.frame.size}];
         foregroundView.delegate = self;
         foregroundView.backgroundColor = [UIColor clearColor];
         [self addSubview:foregroundView];
@@ -148,14 +148,14 @@
     CGContextSetFillColorWithColor(context, aColor.CGColor); // 填充颜色
     CGRect paddedRect = CGRectMake(rect.origin.x+self.rectPadding, rect.origin.y+self.rectPadding, rect.size.width-self.rectPadding*2, rect.size.height-self.rectPadding*2);
     switch (self.bubbleType) {
-        case BubbleTypeEllipse:{
+        case LVBubbleTypeEllipse:{
             // front
             CGContextAddEllipseInRect(context, paddedRect); // 椭圆
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
             break;
-        case BubbleTypeShout:{
-            NSArray *shoutData = [TextBubbleView shout_data];
+        case LVBubbleTypeShout:{
+            NSArray *shoutData = [LVTextBubbleView shout_data];
             CGContextBeginPath(context);
             CGContextMoveToPoint(context, [shoutData[0][0] floatValue]*self.padding_x_scale+self.rectPadding, [shoutData[0][1] floatValue]*self.padding_y_scale+self.rectPadding); // 移动
             for (NSArray *points in shoutData) {
@@ -166,8 +166,8 @@
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
             break;
-        case BubbleTypeThought:{
-            NSArray *thoughtData = [TextBubbleView thought_data];
+        case LVBubbleTypeThought:{
+            NSArray *thoughtData = [LVTextBubbleView thought_data];
             CGContextBeginPath(context);
             CGContextMoveToPoint(context, [thoughtData[0][0] floatValue]*self.padding_x_scale+self.rectPadding, [thoughtData[0][1] floatValue]*self.padding_y_scale+self.rectPadding); // 移动
             for (NSArray *points in thoughtData) {

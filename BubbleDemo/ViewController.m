@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "BubbleView.h"
+#import "LVBubbleView.h"
 
 #define SendPhotosViewControllerCamera 0
 #define SendPhotosViewControllerPickPhoto 1
 
 @interface ViewController () <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, strong) BubbleView *bubbleView;
-@property (nonatomic, strong) BubbleView *bubbleView1;
+@property (nonatomic, strong) LVBubbleView *bubbleView;
+@property (nonatomic, strong) LVBubbleView *bubbleView1;
 @property (nonatomic, strong) NSMutableArray *bubbleViews;
 //@property (nonatomic, strong) TextBubbleView *textBubbleView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -81,9 +81,9 @@
 //    [self.view addSubview:bubbleView];
 //    self.textBubbleView = bubbleView;
     
-    BubbleView *bubbleView = [[BubbleView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    LVBubbleView *bubbleView = [[LVBubbleView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     bubbleView.backgroundColor = [UIColor clearColor];
-    bubbleView.textBubbleView.bubbleType = BubbleTypeEllipse;
+    bubbleView.textBubbleView.bubbleType = LVBubbleTypeEllipse;
     bubbleView.textBubbleView.maxWidth = 100;
     [self.view addSubview:bubbleView];
     [self.bubbleViews addObject:bubbleView];
@@ -106,7 +106,7 @@
     return _bubbleViews;
 }
 
-- (BubbleView *)bubbleView
+- (LVBubbleView *)bubbleView
 {
     return self.bubbleViews[self.bubbleViews.count-1];
 }
@@ -117,17 +117,17 @@
 {
     switch (sender.selectedSegmentIndex) {
         case 0:{
-            self.bubbleView.bubbleType = BubbleTypeEllipse;
+            self.bubbleView.bubbleType = LVBubbleTypeEllipse;
             [self.bubbleView setNeedsDisplay];
         }
             break;
         case 1:{
-            self.bubbleView.bubbleType = BubbleTypeThought;
+            self.bubbleView.bubbleType = LVBubbleTypeThought;
             [self.bubbleView setNeedsDisplay];
         }
             break;
         case 2:{
-            self.bubbleView.bubbleType = BubbleTypeShout;
+            self.bubbleView.bubbleType = LVBubbleTypeShout;
             [self.bubbleView setNeedsDisplay];
         }
         default:
@@ -143,9 +143,9 @@
 
 - (IBAction)addBubbleView:(id)sender
 {
-    BubbleView *bubbleView = [[BubbleView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    LVBubbleView *bubbleView = [[LVBubbleView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     bubbleView.backgroundColor = [UIColor clearColor];
-    bubbleView.textBubbleView.bubbleType = BubbleTypeEllipse;
+    bubbleView.textBubbleView.bubbleType = LVBubbleTypeEllipse;
     bubbleView.textBubbleView.maxWidth = 100;
     [self.view addSubview:bubbleView];
     [self.bubbleViews addObject:bubbleView];
@@ -153,7 +153,7 @@
 
 - (IBAction)cutBubbleView:(id)sender
 {
-    BubbleView *bubbleView = self.bubbleViews[self.bubbleViews.count-1];
+    LVBubbleView *bubbleView = self.bubbleViews[self.bubbleViews.count-1];
     [bubbleView removeFromSuperview];
     [self.bubbleViews removeObject:bubbleView];
 }

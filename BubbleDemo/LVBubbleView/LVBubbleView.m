@@ -6,37 +6,37 @@
 //  Copyright (c) 2014年 pengwei.lv. All rights reserved.
 //
 
-#import "BubbleView.h"
+#import "LVBubbleView.h"
 
-#pragma mark - BubbleView
+#pragma mark - LVBubbleView
 
-@interface BubbleView () <BubblePointerViewProtocol, TextBubbleViewProtocol>
+@interface LVBubbleView () <LVBubblePointerViewProtocol, LVTextBubbleViewProtocol>
 
-@property (nonatomic, strong) BubblePointerView *bubblePointerView;
+@property (nonatomic, strong) LVBubblePointerView *bubblePointerView;
 @property (nonatomic) CGPoint targetPoint;
 @property (nonatomic) CGPoint textBubbleViewCenterPoint;
 
 @end
 
-@implementation BubbleView
+@implementation LVBubbleView
 
-#pragma mark - TextBubbleViewProtocol
+#pragma mark - LVTextBubbleViewProtocol
 
-- (void)textBubbleViewDidmoved:(TextBubbleView *)textBubbleView
+- (void)textBubbleViewDidmoved:(LVTextBubbleView *)textBubbleView
 {
     self.textBubbleViewCenterPoint = CGPointMake(CGRectGetMidX(textBubbleView.frame), CGRectGetMidY(textBubbleView.frame));
     [self setNeedsDisplay];
 }
 
-- (void)textBubbleViewDidChanged:(TextBubbleView *)textBubbleView
+- (void)textBubbleViewDidChanged:(LVTextBubbleView *)textBubbleView
 {
     self.textBubbleViewCenterPoint = CGPointMake(CGRectGetMidX(textBubbleView.frame), CGRectGetMidY(textBubbleView.frame));
     [self setNeedsDisplay];
 }
 
-#pragma mark - BubblePointerViewProtocol
+#pragma mark - LVBubblePointerViewProtocol
 
-- (void)bubblePointerViewDidMoved:(BubblePointerView *)bubblePointerView
+- (void)bubblePointerViewDidMoved:(LVBubblePointerView *)bubblePointerView
 {
     self.targetPoint = CGPointMake(CGRectGetMidX(bubblePointerView.frame), CGRectGetMidY(bubblePointerView.frame));
     [self setNeedsDisplay];
@@ -49,7 +49,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // BubblePointerView
-        BubblePointerView *bubblePointerView = [[BubblePointerView alloc] init];
+        LVBubblePointerView *bubblePointerView = [[LVBubblePointerView alloc] init];
         bubblePointerView.bounds = CGRectMake(0, 0, 50, 50);
         bubblePointerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)+100);
         bubblePointerView.backgroundColor = [UIColor clearColor];
@@ -58,7 +58,7 @@
         self.bubblePointerView = bubblePointerView;
         
         // TextBubbleView
-        TextBubbleView *textBubbleView = [[TextBubbleView alloc] initWithFrame:CGRectMake(0, 0, 85, 60)];
+        LVTextBubbleView *textBubbleView = [[LVTextBubbleView alloc] initWithFrame:CGRectMake(0, 0, 85, 60)];
         textBubbleView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
         textBubbleView.backgroundColor = [UIColor clearColor];
         textBubbleView.maxWidth = 100;
@@ -119,15 +119,15 @@
     
     // border background
     switch (self.bubbleType) {
-        case BubbleTypeEllipse:
+        case LVBubbleTypeEllipse:
         {
             CGContextAddEllipseInRect(context, self.textBubbleView.frame); // 椭圆
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
             break;
-            case BubbleTypeShout:
+        case LVBubbleTypeShout:
         {
-            NSArray *shoutData = [TextBubbleView shout_data];
+            NSArray *shoutData = [LVTextBubbleView shout_data];
             CGContextBeginPath(context);
             CGContextMoveToPoint(context, [shoutData[0][0] floatValue]*x_scale+textBubbleViewFrameX, [shoutData[0][1] floatValue]*y_scale+textBubbleViewFrameY); // 移动
             for (NSArray *points in shoutData) {
@@ -138,9 +138,9 @@
             CGContextDrawPath(context, kCGPathFillStroke); // 绘制路径
         }
             break;
-            case BubbleTypeThought:
+        case LVBubbleTypeThought:
         {
-            NSArray *thoughtData = [TextBubbleView thought_data];
+            NSArray *thoughtData = [LVTextBubbleView thought_data];
             CGContextBeginPath(context);
             CGContextMoveToPoint(context, [thoughtData[0][0] floatValue]*x_scale+textBubbleViewFrameX, [thoughtData[0][1] floatValue]*y_scale+textBubbleViewFrameY); // 移动
             for (NSArray *points in thoughtData) {
@@ -161,8 +161,8 @@
     // triangle and cycle
     switch (self.bubbleType) {
             // TODO:椭圆形状情况, 三角形两条边改为贝塞尔曲线
-        case BubbleTypeEllipse:
-        case BubbleTypeShout:
+        case LVBubbleTypeEllipse:
+        case LVBubbleTypeShout:
         {
             // TODO:三角底边长度, 可调整为随输入框的大小而改变
             int c = 15;
@@ -194,7 +194,7 @@
             CGContextDrawPath(context, kCGPathFillStroke);
         }
             break;
-        case BubbleTypeThought:
+        case LVBubbleTypeThought:
         {
             float numCicle = MAX(3, floorf(dist/28));
             float lineLength = dist/numCicle;
@@ -226,15 +226,15 @@
 
 @end
 
-#pragma mark - BubblePointerView
+#pragma mark - LVBubblePointerView
 
-@interface BubblePointerView ()
+@interface LVBubblePointerView ()
 
 @property (nonatomic) float oldX, oldY;
 
 @end
 
-@implementation BubblePointerView
+@implementation LVBubblePointerView
 
 #pragma mark - Life Cycle
 

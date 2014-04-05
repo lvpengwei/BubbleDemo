@@ -6,15 +6,15 @@
 //  Copyright (c) 2014年 pengwei.lv. All rights reserved.
 //
 
-#import "MovableView.h"
+#import "LVMovableView.h"
 
-@interface MovableView ()
+@interface LVMovableView ()
 
 @property (nonatomic) float oldX, oldY;
 
 @end
 
-@implementation MovableView
+@implementation LVMovableView
 
 - (id)initWithFrame:(CGRect)frame
 {

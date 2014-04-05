@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843389F018EAA23500A737C8 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843389EF18EAA23500A737C8 /* BubbleView.m */; };
+		843D6BF518EFFB33009B139E /* LVBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D6BF018EFFB33009B139E /* LVBubbleView.m */; };
+		843D6BF618EFFB33009B139E /* LVMovableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D6BF218EFFB33009B139E /* LVMovableView.m */; };
+		843D6BF718EFFB33009B139E /* LVTextBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D6BF418EFFB33009B139E /* LVTextBubbleView.m */; };
 		8465020F18EA5D9000DAF047 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8465020E18EA5D9000DAF047 /* Foundation.framework */; };
 		8465021118EA5D9000DAF047 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8465021018EA5D9000DAF047 /* CoreGraphics.framework */; };
 		8465021318EA5D9000DAF047 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8465021218EA5D9000DAF047 /* UIKit.framework */; };
@@ -22,8 +24,6 @@
 		8465023018EA5D9000DAF047 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8465021218EA5D9000DAF047 /* UIKit.framework */; };
 		8465023818EA5D9000DAF047 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8465023618EA5D9000DAF047 /* InfoPlist.strings */; };
 		8465023A18EA5D9000DAF047 /* BubbleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465023918EA5D9000DAF047 /* BubbleDemoTests.m */; };
-		8465024918EA5DE900DAF047 /* TextBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465024818EA5DE900DAF047 /* TextBubbleView.m */; };
-		8465024C18EA79F300DAF047 /* MovableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8465024B18EA79F300DAF047 /* MovableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		843389EE18EAA23500A737C8 /* BubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleView.h; sourceTree = "<group>"; };
-		843389EF18EAA23500A737C8 /* BubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleView.m; sourceTree = "<group>"; };
+		843D6BEF18EFFB33009B139E /* LVBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVBubbleView.h; sourceTree = "<group>"; };
+		843D6BF018EFFB33009B139E /* LVBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVBubbleView.m; sourceTree = "<group>"; };
+		843D6BF118EFFB33009B139E /* LVMovableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVMovableView.h; sourceTree = "<group>"; };
+		843D6BF218EFFB33009B139E /* LVMovableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVMovableView.m; sourceTree = "<group>"; };
+		843D6BF318EFFB33009B139E /* LVTextBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVTextBubbleView.h; sourceTree = "<group>"; };
+		843D6BF418EFFB33009B139E /* LVTextBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVTextBubbleView.m; sourceTree = "<group>"; };
 		8465020B18EA5D9000DAF047 /* BubbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8465020E18EA5D9000DAF047 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8465021018EA5D9000DAF047 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,10 +62,6 @@
 		8465023518EA5D9000DAF047 /* BubbleDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BubbleDemoTests-Info.plist"; sourceTree = "<group>"; };
 		8465023718EA5D9000DAF047 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8465023918EA5D9000DAF047 /* BubbleDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleDemoTests.m; sourceTree = "<group>"; };
-		8465024718EA5DE900DAF047 /* TextBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBubbleView.h; sourceTree = "<group>"; };
-		8465024818EA5DE900DAF047 /* TextBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBubbleView.m; sourceTree = "<group>"; };
-		8465024A18EA79F300DAF047 /* MovableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovableView.h; sourceTree = "<group>"; };
-		8465024B18EA79F300DAF047 /* MovableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843D6BEE18EFFB33009B139E /* LVBubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				843D6BEF18EFFB33009B139E /* LVBubbleView.h */,
+				843D6BF018EFFB33009B139E /* LVBubbleView.m */,
+				843D6BF118EFFB33009B139E /* LVMovableView.h */,
+				843D6BF218EFFB33009B139E /* LVMovableView.m */,
+				843D6BF318EFFB33009B139E /* LVTextBubbleView.h */,
+				843D6BF418EFFB33009B139E /* LVTextBubbleView.m */,
+			);
+			path = LVBubbleView;
+			sourceTree = "<group>";
+		};
 		8465020218EA5D9000DAF047 = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +139,7 @@
 				8465022018EA5D9000DAF047 /* Main.storyboard */,
 				8465022318EA5D9000DAF047 /* ViewController.h */,
 				8465022418EA5D9000DAF047 /* ViewController.m */,
-				8465024618EA5DE900DAF047 /* BubbleView */,
+				843D6BEE18EFFB33009B139E /* LVBubbleView */,
 				8465022618EA5D9000DAF047 /* Images.xcassets */,
 				8465021518EA5D9000DAF047 /* Supporting Files */,
 			);
@@ -160,19 +173,6 @@
 				8465023618EA5D9000DAF047 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8465024618EA5DE900DAF047 /* BubbleView */ = {
-			isa = PBXGroup;
-			children = (
-				843389EE18EAA23500A737C8 /* BubbleView.h */,
-				843389EF18EAA23500A737C8 /* BubbleView.m */,
-				8465024718EA5DE900DAF047 /* TextBubbleView.h */,
-				8465024818EA5DE900DAF047 /* TextBubbleView.m */,
-				8465024A18EA79F300DAF047 /* MovableView.h */,
-				8465024B18EA79F300DAF047 /* MovableView.m */,
-			);
-			path = BubbleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,12 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8465024C18EA79F300DAF047 /* MovableView.m in Sources */,
+				843D6BF618EFFB33009B139E /* LVMovableView.m in Sources */,
+				843D6BF518EFFB33009B139E /* LVBubbleView.m in Sources */,
 				8465022518EA5D9000DAF047 /* ViewController.m in Sources */,
 				8465021F18EA5D9000DAF047 /* AppDelegate.m in Sources */,
-				843389F018EAA23500A737C8 /* BubbleView.m in Sources */,
-				8465024918EA5DE900DAF047 /* TextBubbleView.m in Sources */,
 				8465021B18EA5D9000DAF047 /* main.m in Sources */,
+				843D6BF718EFFB33009B139E /* LVTextBubbleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
