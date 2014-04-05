@@ -29,9 +29,9 @@ typedef enum : NSUInteger {
 @property (nonatomic) CGFloat maxWidth;
 @property (nonatomic, weak) id<LVTextBubbleViewProtocol> delegate;
 
-@property (nonatomic) CGFloat x_scale;
-@property (nonatomic) CGFloat y_scale;
-@property (nonatomic) NSInteger rectPadding;
+@property (nonatomic) CGFloat x_scale; // 未填充的缩放比x
+@property (nonatomic) CGFloat y_scale; // 未填充的缩放比y
+@property (nonatomic) NSInteger rectPadding; // 填充的大小 默认返回2
 
 + (NSArray *)thought_data;
 + (NSArray *)shout_data;

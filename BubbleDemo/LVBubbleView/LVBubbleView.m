@@ -12,9 +12,9 @@
 
 @interface LVBubbleView () <LVBubblePointerViewProtocol, LVTextBubbleViewProtocol>
 
-@property (nonatomic, strong) LVBubblePointerView *bubblePointerView;
-@property (nonatomic) CGPoint targetPoint;
-@property (nonatomic) CGPoint textBubbleViewCenterPoint;
+@property (nonatomic, strong) LVBubblePointerView *bubblePointerView; // 可拖动的小圆
+@property (nonatomic) CGPoint targetPoint; // 小圆的中心点
+@property (nonatomic) CGPoint textBubbleViewCenterPoint; // bubble的中心点
 
 @end
 
@@ -48,7 +48,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // BubblePointerView
+        // init LVBubblePointerView
         LVBubblePointerView *bubblePointerView = [[LVBubblePointerView alloc] init];
         bubblePointerView.bounds = CGRectMake(0, 0, 50, 50);
         bubblePointerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)+100);
@@ -57,7 +57,7 @@
         [self addSubview:bubblePointerView];
         self.bubblePointerView = bubblePointerView;
         
-        // TextBubbleView
+        // init LVTextBubbleView
         LVTextBubbleView *textBubbleView = [[LVTextBubbleView alloc] initWithFrame:CGRectMake(0, 0, 85, 60)];
         textBubbleView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
         textBubbleView.backgroundColor = [UIColor clearColor];

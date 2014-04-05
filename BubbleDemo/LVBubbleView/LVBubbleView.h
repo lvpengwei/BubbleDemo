@@ -11,8 +11,8 @@
 
 @interface LVBubbleView : UIView
 
-@property (nonatomic) LVBubbleType bubbleType;
-@property (nonatomic, strong) LVTextBubbleView *textBubbleView;
+@property (nonatomic) LVBubbleType bubbleType; // bubble类型选择
+@property (nonatomic, strong) LVTextBubbleView *textBubbleView; // 可输入字的bubble
 
 @end
 
