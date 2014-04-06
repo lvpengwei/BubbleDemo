@@ -9,7 +9,6 @@ BubbleView可在照片或图片上添加一个气泡框(目前支持三种类型
 2.尽量先编辑完然后拖动位置
 
  ![image](http://github.com/devlvpw/BubbleDemo/raw/master/screenshots/IMG_0324.PNG)
- ![image](http://github.com/devlvpw/BubbleDemo/raw/master/screenshots/psb.png)
 
 希望交流请联系 : 
 
