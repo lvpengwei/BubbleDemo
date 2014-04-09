@@ -41,6 +41,16 @@
 {
     CGSize currentSize = textView.frame.size;
     CGSize textViewTosize = [textView sizeThatFits:CGSizeMake(self.maxWidth, MAXFLOAT)];
+    
+    // resize when systemVersion less than 7.0
+    if (([[[UIDevice currentDevice] systemVersion] floatValue]) < 7.0) {
+        CGSize size = [textView.text sizeWithFont:textView.font constrainedToSize:CGSizeMake(self.maxWidth-16, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+        // padding
+        size.width += 16;
+        size.height += 16;
+        textViewTosize = size;
+    }
+    
     NSLog(@"%@", NSStringFromCGSize(textViewTosize));
     float deltaWidth = textViewTosize.width - currentSize.width;
     float deltaHeight = textViewTosize.height - currentSize.height;
@@ -118,6 +128,7 @@
         textView.delegate = self;
         textView.backgroundColor = [UIColor clearColor];
         textView.scrollEnabled = NO;
+        textView.textAlignment = NSTextAlignmentCenter;
         [self addSubview:textView];
         self.textView = textView;
         
