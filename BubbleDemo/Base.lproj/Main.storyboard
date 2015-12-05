@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kIi-Hr-Zgk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zhX-XX-vae">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kIi-Hr-Zgk">
                                 <rect key="frame" x="20" y="520" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
                                 <segments>
                                     <segment title="ellipse"/>
                                     <segment title="thought"/>
@@ -28,13 +33,9 @@
                                     <action selector="segmentControlAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="yq4-vr-QfV"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhX-XX-vae">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8Y-sF-jVu">
-                                <rect key="frame" x="129" y="482" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8Y-sF-jVu">
+                                <rect key="frame" x="130" y="478" width="60" height="30"/>
+                                <animations/>
                                 <state key="normal" title="选择照片">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,17 +43,17 @@
                                     <action selector="pickPhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cw9-Mv-xnr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCs-VC-SH2">
-                                <rect key="frame" x="20" y="486" width="57" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCs-VC-SH2">
+                                <rect key="frame" x="20" y="478" width="45" height="30"/>
+                                <animations/>
                                 <state key="normal" title="加气泡"/>
                                 <connections>
                                     <action selector="addBubbleView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="joL-yx-ELs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7D-nW-cLf">
-                                <rect key="frame" x="254" y="482" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7D-nW-cLf">
+                                <rect key="frame" x="255" y="478" width="45" height="30"/>
+                                <animations/>
                                 <state key="normal" title="减气泡">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -61,7 +62,23 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zhX-XX-vae" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0Zm-LZ-dea"/>
+                            <constraint firstItem="kIi-Hr-Zgk" firstAttribute="top" secondItem="UCs-VC-SH2" secondAttribute="bottom" constant="12" id="3zt-pc-7uJ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="zhX-XX-vae" secondAttribute="bottom" id="4Td-mb-gsR"/>
+                            <constraint firstAttribute="trailing" secondItem="z7D-nW-cLf" secondAttribute="trailing" constant="20" id="7pH-5Q-qBg"/>
+                            <constraint firstItem="UCs-VC-SH2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="92b-NT-aJt"/>
+                            <constraint firstAttribute="trailing" secondItem="kIi-Hr-Zgk" secondAttribute="trailing" constant="20" id="Bfx-ag-w2m"/>
+                            <constraint firstItem="zhX-XX-vae" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="S6K-J2-zUY"/>
+                            <constraint firstAttribute="trailing" secondItem="zhX-XX-vae" secondAttribute="trailing" id="VeF-Zc-AAI"/>
+                            <constraint firstItem="kIi-Hr-Zgk" firstAttribute="top" secondItem="K8Y-sF-jVu" secondAttribute="bottom" constant="12" id="gBi-bJ-n7X"/>
+                            <constraint firstItem="kIi-Hr-Zgk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="gZb-C0-Flo"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kIi-Hr-Zgk" secondAttribute="bottom" constant="20" id="k2V-Ph-HFx"/>
+                            <constraint firstItem="K8Y-sF-jVu" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qET-0D-FCg"/>
+                            <constraint firstItem="kIi-Hr-Zgk" firstAttribute="top" secondItem="z7D-nW-cLf" secondAttribute="bottom" constant="12" id="y5d-Ur-tIi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="zhX-XX-vae" id="3gp-66-aDq"/>
@@ -71,9 +88,4 @@
             </objects>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
