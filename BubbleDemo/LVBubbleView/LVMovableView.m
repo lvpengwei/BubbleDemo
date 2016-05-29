@@ -16,25 +16,7 @@
 
 @implementation LVMovableView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint touchLocation = [touch locationInView:self];
@@ -42,15 +24,15 @@
     self.oldY = touchLocation.y;
 }
 
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesCancelled:touches withEvent:event];
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
     float deltaX = [[touches anyObject]locationInView:self].x - self.oldX;
     float deltaY = [[touches anyObject]locationInView:self].y - self.oldY;

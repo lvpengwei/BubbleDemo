@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 pengwei.lv. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 typedef enum : NSUInteger {
     LVBubbleTypeEllipse,
     LVBubbleTypeThought,
     LVBubbleTypeShout,
 } LVBubbleType;
-
-#import <UIKit/UIKit.h>
 
 @class LVTextBubbleView;
 

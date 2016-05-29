@@ -22,30 +22,26 @@
 
 #pragma mark - LVTextBubbleViewProtocol
 
-- (void)textBubbleViewDidmoved:(LVTextBubbleView *)textBubbleView
-{
+- (void)textBubbleViewDidmoved:(LVTextBubbleView *)textBubbleView {
     self.textBubbleViewCenterPoint = CGPointMake(CGRectGetMidX(textBubbleView.frame), CGRectGetMidY(textBubbleView.frame));
     [self setNeedsDisplay];
 }
 
-- (void)textBubbleViewDidChanged:(LVTextBubbleView *)textBubbleView
-{
+- (void)textBubbleViewDidChanged:(LVTextBubbleView *)textBubbleView {
     self.textBubbleViewCenterPoint = CGPointMake(CGRectGetMidX(textBubbleView.frame), CGRectGetMidY(textBubbleView.frame));
     [self setNeedsDisplay];
 }
 
 #pragma mark - LVBubblePointerViewProtocol
 
-- (void)bubblePointerViewDidMoved:(LVBubblePointerView *)bubblePointerView
-{
+- (void)bubblePointerViewDidMoved:(LVBubblePointerView *)bubblePointerView {
     self.targetPoint = CGPointMake(CGRectGetMidX(bubblePointerView.frame), CGRectGetMidY(bubblePointerView.frame));
     [self setNeedsDisplay];
 }
 
 #pragma mark - Life Cycle
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // init LVBubblePointerView
@@ -74,8 +70,7 @@
 
 #pragma mark - override
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *tmpView = [super hitTest:point withEvent:event];
     if (tmpView == self) {
         return nil;
@@ -83,17 +78,13 @@
     return tmpView;
 }
 
-- (void)setNeedsDisplay
-{
+- (void)setNeedsDisplay {
     [super setNeedsDisplay];
     self.textBubbleView.bubbleType = self.bubbleType;
     [self.textBubbleView setNeedsDisplay];
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     float x_scale = self.textBubbleView.x_scale;
     float y_scale = self.textBubbleView.y_scale;
     float textBubbleViewFrameX = self.textBubbleView.frame.origin.x;
@@ -236,22 +227,7 @@
 
 @implementation LVBubblePointerView
 
-#pragma mark - Life Cycle
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(context,0,0,0,1.0); // 画笔线的颜色
     CGContextSetLineWidth(context, 1.0); // 线的宽度
@@ -261,7 +237,7 @@
     CGContextDrawPath(context, kCGPathStroke); //绘制路径
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint touchLocation = [touch locationInView:self];
@@ -269,7 +245,7 @@
     self.oldY = touchLocation.y;
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
     float deltaX = [[touches anyObject]locationInView:self].x - self.oldX;
     float deltaY = [[touches anyObject]locationInView:self].y - self.oldY;

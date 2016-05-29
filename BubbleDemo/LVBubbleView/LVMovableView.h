@@ -11,6 +11,7 @@
 @class LVMovableView;
 
 @protocol LVMovableViewProtocol <NSObject>
+
 @optional
 - (void)movableViewBeginMove;
 - (void)movableView:(LVMovableView *)movableView deltaX:(float)deltaX deltaY:(float)deltaY;
